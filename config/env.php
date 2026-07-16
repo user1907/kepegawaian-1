@@ -18,6 +18,9 @@ function loadEnv($path = null) {
         $key = trim($key);
         $value = trim($value);
         $value = trim($value, "\"' \t\n\r\0\x0B");
+        if (getenv($key) !== false || array_key_exists($key, $_ENV)) {
+            continue;
+        }
         $_ENV[$key] = $value;
         putenv("$key=$value");
     }
