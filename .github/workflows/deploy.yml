@@ -18,7 +18,12 @@ jobs:
       - name: PHP Lint
         run: |
           sudo apt-get update && sudo apt-get install -y php-cli
-          find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; 2>&1 | grep -v "No syntax errors"
+          find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; 2>&1 | tee /tmp/lint.txt
+          if grep -v "No syntax errors" /tmp/lint.txt | grep -q "."; then
+            echo "::error::PHP syntax errors found"
+            exit 1
+          fi
+          echo "All PHP files OK"
 
   build:
     runs-on: ubuntu-latest
