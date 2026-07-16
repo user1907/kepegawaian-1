@@ -29,6 +29,7 @@ if (!$row) {
         .navbar a { color: #fff; text-decoration: none; margin-right: 20px; font-size: 14px; }
         .navbar a:hover { text-decoration: underline; }
         .navbar .welcome { float: right; font-size: 14px; }
+        .navbar .credit { float: right; font-size: 12px; color: #999; margin-right: 20px; line-height: 20px; margin-top: 2px; }
         .navbar .welcome a { margin-left: 10px; }
         .container { max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         h1 { color: #333; margin-top: 0; }
@@ -48,6 +49,7 @@ if (!$row) {
         <a href="../pegawai/pegawai_list.php">Pegawai</a>
         <a href="../jabatan/jabatan_list.php">Jabatan</a>
         <a href="../jabatanpegawai/jabatanpegawai_list.php">Penugasan</a>
+        <span class="credit">Created by Muhamad Hazmi Alfarizqi</span>
         <span class="welcome">Hai, <?= htmlspecialchars($_SESSION['username']) ?> <a href="../session/logout.php" style="color:#f00;">Logout</a></span>
     </div>
     <div class="container">
